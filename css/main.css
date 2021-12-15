@@ -1,0 +1,22 @@
+.calendar::before{
+    content: '' !important;
+    display: inline-block !important;
+    vertical-align: middle !important;
+    /* display: block !important; */
+    background-image: url(../img/download.33.png) !important;
+    background-repeat: no-repeat !important;
+    background-size: contain !important;
+    width: 15px !important;
+    height: 15px !important;
+}
+
+.star::before{
+    content: '' !important;
+    display: inline-block !important;
+    /* vertical-align: middle !important; */
+    background-image: url(../img/download.star.png) !important;
+    background-repeat: no-repeat !important;
+    background-size: contain !important;
+    width: 15px !important;
+    height: 15px !important;
+}
