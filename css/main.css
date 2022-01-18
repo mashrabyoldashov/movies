@@ -1,11 +1,23 @@
 .movies__list{
-    min-height: 500px;
-    padding: 0;
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    list-style: none;
+    margin: -20px 0px !important;
 }
+
+.card{
+    width: 400px !important;
+    margin: 20px 0px !important;
+    background-color: rgba(65, 65, 65, 0.37);
+    transition: all 0.1s;
+}
+
+.card:hover{
+    transform: scale(1.009);
+    box-shadow: 0 0 5px 5px rgba(184, 183, 183, 0.2);
+}
+
+/* .card-img-top{
+    width: 100% !important;
+    height: auto !important;
+} */
 
 .calendar::before{
     content: '' !important;
@@ -17,6 +29,7 @@
     background-size: contain !important;
     width: 15px !important;
     height: 15px !important;
+    margin-right: 15px !important;
 }
 
 .star::before{
@@ -28,4 +41,5 @@
     background-size: contain !important;
     width: 15px !important;
     height: 15px !important;
+    margin-right: 15px !important;
 }
