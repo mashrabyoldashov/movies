@@ -31,44 +31,6 @@ var movies = [
     "bigThumbnail": "http://i3.ytimg.com/vi/jwD04NsnLLg/maxresdefault.jpg"
   },
   {
-    "title": "Mickey's Magical Christmas: Snowed in at the House of Mouse",
-    "year": 2001,
-    "categories": [
-      "Adventure",
-      "Animation",
-      "Comedy",
-      "Family",
-      "Fantasy"
-    ],
-    "imdbId": "tt0300195",
-    "imdbRating": 6.8,
-    "runtime": 65,
-    "language": "English",
-    "youtubeId": "uCKwHHftrU4",
-    "summary": "After everyone is snowed in at the House of Mouse, Mickey suggests they throw their own Christmas party. Everyone is happy, except for Donald who just isn't in to the Christmas spirit. So Mickey shows a series of cartoons that show just what Christmas is all about. It features a star studded cast of Disney characters from everyone's favorite animated Disney movies.",
-    "smallThumbnail": "http://i3.ytimg.com/vi/uCKwHHftrU4/hqdefault.jpg",
-    "bigThumbnail": "http://i3.ytimg.com/vi/uCKwHHftrU4/maxresdefault.jpg"
-  },
-  {
-    "title": "Mickey's House of Villains",
-    "year": 2001,
-    "categories": [
-      "Animation",
-      "Comedy",
-      "Family",
-      "Fantasy",
-      "Horror"
-    ],
-    "imdbId": "tt0329374",
-    "imdbRating": 6.6,
-    "runtime": 0,
-    "language": "English",
-    "youtubeId": "JA03ciYt-Ek",
-    "summary": "The villains from the popular animated Disney films are gathered at the House of Mouse with plans to take over. Soon, the villains take over the house and kick out Mickey, Donald and Goofy. It's all up to Mickey and his friends to overthrow evil and return the House of Mouse to normal--or as close to normal as it get's.",
-    "smallThumbnail": "http://i3.ytimg.com/vi/JA03ciYt-Ek/hqdefault.jpg",
-    "bigThumbnail": "http://i3.ytimg.com/vi/JA03ciYt-Ek/maxresdefault.jpg"
-  },
-  {
     "title": "And Then I Go",
     "year": 2017,
     "categories": [
@@ -227,22 +189,6 @@ var movies = [
     "summary": "Nothing is impossible for a group of young campers, friends and enemies alike, on a weekend retreat at Camp Pinnacle. But what starts as an exciting wilderness adventure turns into trouble when a young camper goes missing and the rest of the group must set out to find him. The campers are forced to overcome their differences and band together to re-claim their weekend and make it out of the woods before dark!",
     "smallThumbnail": "http://i3.ytimg.com/vi/eMVw1pHVMAw/hqdefault.jpg",
     "bigThumbnail": "http://i3.ytimg.com/vi/eMVw1pHVMAw/maxresdefault.jpg"
-  },
-  {
-    "title": "Silent Night",
-    "year": 2017,
-    "categories": [
-      "Comedy",
-      "Drama"
-    ],
-    "imdbId": "tt7133554",
-    "imdbRating": 7.5,
-    "runtime": 100,
-    "language": "English",
-    "youtubeId": "cA6BUYVkQoE",
-    "summary": "Adam unexpectedly visits his family house at Christmas after a few years of working abroad. No family member knows about his secret plans and the real reasons of his visit.",
-    "smallThumbnail": "http://i3.ytimg.com/vi/cA6BUYVkQoE/hqdefault.jpg",
-    "bigThumbnail": "http://i3.ytimg.com/vi/cA6BUYVkQoE/maxresdefault.jpg"
   },
   {
     "title": "Suicide Squad: Hell to Pay",
@@ -987,21 +933,6 @@ var movies = [
     "bigThumbnail": "http://i3.ytimg.com/vi/uxM6vsMNwXs/maxresdefault.jpg"
   },
   {
-    "title": "A Moving Romance",
-    "year": 2017,
-    "categories": [
-      "Family"
-    ],
-    "imdbId": "tt5039242",
-    "imdbRating": 6.1,
-    "runtime": 90,
-    "language": "English",
-    "youtubeId": "",
-    "summary": "Interior designer Olivia Wilson loses her job in New York. With newfound time on her hands she decides to head home to California to surprise her dad, Neil for the 25th anniversary of the family business, Wilson Family Movers. Upon arrival she meets the newest member of the Wilson team, Scott. With business coming to a halt, she and Scott work together to get things back on track. Just as the two begin to form a bond, Olivia is faced with a difficult decision when a worthwhile job opportunity pops up back in New York.",
-    "smallThumbnail": "http://i3.ytimg.com/vi//hqdefault.jpg",
-    "bigThumbnail": "http://i3.ytimg.com/vi//maxresdefault.jpg"
-  },
-  {
     "title": "Happy End",
     "year": 2017,
     "categories": [
@@ -1131,22 +1062,6 @@ var movies = [
     "bigThumbnail": "http://i3.ytimg.com/vi/Plr3V4TYBQE/maxresdefault.jpg"
   },
   {
-    "title": "The Coming Days",
-    "year": 2010,
-    "categories": [
-      "Drama",
-      "Sci-Fi"
-    ],
-    "imdbId": "tt1545985",
-    "imdbRating": 6.3,
-    "runtime": 125,
-    "language": "English",
-    "youtubeId": "",
-    "summary": "In the near future the dreams of three adult siblings living in Germany are fractured by difficult romantic relationships and the unwitting involvement with an underground organization through a growing worldwide panic over the few remaining oil fields in Asia.",
-    "smallThumbnail": "http://i3.ytimg.com/vi//hqdefault.jpg",
-    "bigThumbnail": "http://i3.ytimg.com/vi//maxresdefault.jpg"
-  },
-  {
     "title": "Ichi the Killer",
     "year": 2001,
     "categories": [
@@ -1179,23 +1094,6 @@ var movies = [
     "summary": "One-off drama based on the critically acclaimed memoirs of British journalist Sathnam Sanghera. A touching, humorous and emotional rites-of-passage story.",
     "smallThumbnail": "http://i3.ytimg.com/vi/RLEnTBG7ncQ/hqdefault.jpg",
     "bigThumbnail": "http://i3.ytimg.com/vi/RLEnTBG7ncQ/maxresdefault.jpg"
-  },
-  {
-    "title": "Small Town Crime",
-    "year": 2017,
-    "categories": [
-      "Crime",
-      "Mystery",
-      "Thriller"
-    ],
-    "imdbId": "tt5751998",
-    "imdbRating": 6.6,
-    "runtime": 91,
-    "language": "English",
-    "youtubeId": "WakqZghIX_g",
-    "summary": "An alcoholic ex-cop (Hawkes) finds the body of a young woman and, through an act of self-redemption, becomes hell-bent on finding the killer but unwittingly puts his family in danger and gets caught up with several dark characters along the way.",
-    "smallThumbnail": "http://i3.ytimg.com/vi/WakqZghIX_g/hqdefault.jpg",
-    "bigThumbnail": "http://i3.ytimg.com/vi/WakqZghIX_g/maxresdefault.jpg"
   },
   {
     "title": "Control",
@@ -1279,24 +1177,6 @@ var movies = [
     "summary": "Rome, 1973. Masked men kidnap a teenage boy named John Paul Getty III (Charlie Plummer). His grandfather, Jean Paul Getty (Christopher Plummer), is the richest human in the world, a billionaire oil magnate, but he's notoriously miserly. His favorite grandson's abduction is not reason enough for him to part with any of his fortune. All the Money in the World (2017) follows Gail, (Michelle Williams), Paul's devoted, strong-willed mother, who unlike Getty, has consistently chosen her children over his fortune. Her son's life in the balance with time running out, she attempts to sway Getty even as her son's mob captors become increasingly more determined, volatile and brutal. When Getty sends his enigmatic security man Fletcher Chace (Mark Wahlberg) to look after his interests, he and Gail become unlikely allies in this race against time that ultimately reveals the true and lasting value of love over money.",
     "smallThumbnail": "http://i3.ytimg.com/vi/KXHrCBkIxQQ/hqdefault.jpg",
     "bigThumbnail": "http://i3.ytimg.com/vi/KXHrCBkIxQQ/maxresdefault.jpg"
-  },
-  {
-    "title": "Chasing the Dragon",
-    "year": 2017,
-    "categories": [
-      "Action",
-      "Biography",
-      "Crime",
-      "History"
-    ],
-    "imdbId": "tt6015328",
-    "imdbRating": 6.9,
-    "runtime": 128,
-    "language": "English",
-    "youtubeId": "Adj5dtSKF8U",
-    "summary": "The year is 1963, an illegal immigrant named Ho (Donnie Yen) sneaks into British-ruled Hong Kong. Equipped with guts and combat skills, he plunges into the underground world getting into constant conflict with rivals. After many adversaries, the once good-natured man is physically crippled and turns into a monster more atrocious than all the most corrupted cops and ruthless drug dealers. Ho eventually emerges as the most powerful drug lord under the control of Chief Detective Sergeant, Lee Rock (Andy Lau). However, with the establishment of Independent Commission Against Corruption (ICAC) by the law enforcement in 1974, Rock is forced into premature retirement. But Ho still insists he would not be stopped as he determines to become the sole dictator of the drug empire.",
-    "smallThumbnail": "http://i3.ytimg.com/vi/Adj5dtSKF8U/hqdefault.jpg",
-    "bigThumbnail": "http://i3.ytimg.com/vi/Adj5dtSKF8U/maxresdefault.jpg"
   },
   {
     "title": "I Kill Giants",
@@ -1659,52 +1539,6 @@ var movies = [
     "bigThumbnail": "http://i3.ytimg.com/vi/FOxhoVx6a8o/maxresdefault.jpg"
   },
   {
-    "title": "Iron Men",
-    "year": 2017,
-    "categories": [
-      "Documentary"
-    ],
-    "imdbId": "tt6440810",
-    "imdbRating": 7.2,
-    "runtime": 75,
-    "language": "English",
-    "youtubeId": "",
-    "summary": "Behind the scenes and with the fans of West Ham United as they move to a new home after 112 years at Upton Park.",
-    "smallThumbnail": "http://i3.ytimg.com/vi//hqdefault.jpg",
-    "bigThumbnail": "http://i3.ytimg.com/vi//maxresdefault.jpg"
-  },
-  {
-    "title": "Fassbinder",
-    "year": 2015,
-    "categories": [
-      "Documentary"
-    ],
-    "imdbId": "tt4536540",
-    "imdbRating": 6.6,
-    "runtime": 95,
-    "language": "English",
-    "youtubeId": "",
-    "summary": "A film portrait of the influential Bavarian actor, director and screenwriter who publicly confessed his homosexuality.",
-    "smallThumbnail": "http://i3.ytimg.com/vi//hqdefault.jpg",
-    "bigThumbnail": "http://i3.ytimg.com/vi//maxresdefault.jpg"
-  },
-  {
-    "title": "Black Bread",
-    "year": 2010,
-    "categories": [
-      "Crime",
-      "Drama"
-    ],
-    "imdbId": "tt1454523",
-    "imdbRating": 7,
-    "runtime": 108,
-    "language": "English",
-    "youtubeId": "mn_gJ5Aly6c",
-    "summary": "In the harsh post-war years' Catalan countryside, Andreu, a child that belongs to the losing side, finds the corpses of a man and his son in the forest. The authorities want his father to be made responsible of the deaths, but Andreu tries to help his father by finding out who truly killed them. In this search, Andreu develops a moral consciousness against a world of adults fed by lies. In order to survive, he betrays his own roots and ends up finding out the monster that lives within him.",
-    "smallThumbnail": "http://i3.ytimg.com/vi/mn_gJ5Aly6c/hqdefault.jpg",
-    "bigThumbnail": "http://i3.ytimg.com/vi/mn_gJ5Aly6c/maxresdefault.jpg"
-  },
-  {
     "title": "Won't Back Down",
     "year": 2012,
     "categories": [
@@ -1752,23 +1586,6 @@ var movies = [
     "summary": "A biologist's husband disappears. She puts her name forward for an expedition into an environmental disaster zone, but does not find what she's expecting. The expedition team is made up of the biologist, an anthropologist, a psychologist, a surveyor, and a linguist.",
     "smallThumbnail": "http://i3.ytimg.com/vi/89OP78l9oF0/hqdefault.jpg",
     "bigThumbnail": "http://i3.ytimg.com/vi/89OP78l9oF0/maxresdefault.jpg"
-  },
-  {
-    "title": "Takeshis'",
-    "year": 2005,
-    "categories": [
-      "Comedy",
-      "Drama",
-      "Fantasy"
-    ],
-    "imdbId": "tt0478044",
-    "imdbRating": 6.4,
-    "runtime": 108,
-    "language": "English",
-    "youtubeId": "esRWmVRGk9M",
-    "summary": "Beat Takeshi lives the busy and sometimes surreal life of a showbiz celebrity. One day he meets his blond lookalike named Kitano, a shy convenience store cashier, who, still an unknown actor, is waiting for his big break. After their paths cross, Kitano seems to begin hallucinating about becoming Beat.",
-    "smallThumbnail": "http://i3.ytimg.com/vi/esRWmVRGk9M/hqdefault.jpg",
-    "bigThumbnail": "http://i3.ytimg.com/vi/esRWmVRGk9M/maxresdefault.jpg"
   },
   {
     "title": "The Nile Hilton Incident",
@@ -1837,22 +1654,6 @@ var movies = [
     "summary": "An epic set in post-WWII Japan and centered on an American former G.I. who joins the yakuza.",
     "smallThumbnail": "http://i3.ytimg.com/vi/QNNcl2mEHzQ/hqdefault.jpg",
     "bigThumbnail": "http://i3.ytimg.com/vi/QNNcl2mEHzQ/maxresdefault.jpg"
-  },
-  {
-    "title": "Love Per Square Foot",
-    "year": 2018,
-    "categories": [
-      "Comedy",
-      "Romance"
-    ],
-    "imdbId": "tt7853242",
-    "imdbRating": 7.2,
-    "runtime": 133,
-    "language": "English",
-    "youtubeId": "sGIez5mIc0U",
-    "summary": "Love Per Sq Ft, is a feature film which deals with the very common predicaments that faces today's urban youth; finding a house and finding love. Through the course of this romantic comedy we see Sanjay Chaturvedi and Karina D'souza desperately seeking a house, but realizing the difference between 'ghar' and 'makaan'.",
-    "smallThumbnail": "http://i3.ytimg.com/vi/sGIez5mIc0U/hqdefault.jpg",
-    "bigThumbnail": "http://i3.ytimg.com/vi/sGIez5mIc0U/maxresdefault.jpg"
   },
   {
     "title": "Hotel Salvation",
@@ -2437,22 +2238,6 @@ var movies = [
     "bigThumbnail": "http://i3.ytimg.com/vi/KU3G7EEFnwQ/maxresdefault.jpg"
   },
   {
-    "title": "The Great Vazquez",
-    "year": 2010,
-    "categories": [
-      "Biography",
-      "Comedy"
-    ],
-    "imdbId": "tt1525915",
-    "imdbRating": 6.3,
-    "runtime": 106,
-    "language": "English",
-    "youtubeId": "",
-    "summary": "Is it possible to live aside of the system, thinking only about the present and oneself? A feature film about Manuel Vázquez, the best comic book author in Barcelona during the sixties, but, mainly, a man with a very particular way of living his life.",
-    "smallThumbnail": "http://i3.ytimg.com/vi//hqdefault.jpg",
-    "bigThumbnail": "http://i3.ytimg.com/vi//maxresdefault.jpg"
-  },
-  {
     "title": "The Body",
     "year": 2012,
     "categories": [
@@ -2482,22 +2267,6 @@ var movies = [
     "summary": "From the director of Generation Iron, comes the anticipated sequel that will depict 5 of the top bodybuilding and fitness mega-stars on a quest of achieving the ultimate physique and taking it to the next extreme level. In the world of social media and internet, the rules have changed as to what makes an iconic bodybuilding mass-monster. Starring Kai Greene, Calum Von Moger, Rich Piana, among others, this film will explore an all new generation of bodybuilders and how this new world, and new people, carve their own path to physique perfection.",
     "smallThumbnail": "http://i3.ytimg.com/vi/Q8-oU2Fb5ro/hqdefault.jpg",
     "bigThumbnail": "http://i3.ytimg.com/vi/Q8-oU2Fb5ro/maxresdefault.jpg"
-  },
-  {
-    "title": "The Square",
-    "year": 2017,
-    "categories": [
-      "Comedy",
-      "Drama"
-    ],
-    "imdbId": "tt4995790",
-    "imdbRating": 7.4,
-    "runtime": 151,
-    "language": "English",
-    "youtubeId": "zKDPrpJEGBY",
-    "summary": "Christian is the respected curator of a contemporary art museum, a divorced but devoted father of two who drives an electric car and supports good causes. His next show is \"The Square\", an installation which invites passersby to altruism, reminding them of their role as responsible fellow human beings. But sometimes, it is difficult to live up to your own ideals: Christian's foolish response to the theft of his phone drags him into shameful situations. Meanwhile, the museum's PR agency has created an unexpected campaign for \"The Square\". The response is overblown and sends Christian, as well as the museum, into an existential crisis.",
-    "smallThumbnail": "http://i3.ytimg.com/vi/zKDPrpJEGBY/hqdefault.jpg",
-    "bigThumbnail": "http://i3.ytimg.com/vi/zKDPrpJEGBY/maxresdefault.jpg"
   },
   {
     "title": "Forgotten",
@@ -2771,24 +2540,6 @@ var movies = [
     "summary": "Romeo Aldea (49), a physician living in a small mountain town in Transylvania, has raised his daughter Eliza with the idea that once she turns 18, she will leave to study and live abroad. His plan is close to succeeding - Eliza has won a scholarship to study psychology in the UK. She just has to pass her final exams - a formality for such a good student. On the day before her first written exam, Eliza is assaulted in an attack that could jeopardize her entire future. Now Romeo has to make a decision. There are ways of solving the situation, but none of them using the principles he, as a father, has taught his daughter.",
     "smallThumbnail": "http://i3.ytimg.com/vi/dlxGMOJ0jK0/hqdefault.jpg",
     "bigThumbnail": "http://i3.ytimg.com/vi/dlxGMOJ0jK0/maxresdefault.jpg"
-  },
-  {
-    "title": "The Battleship Island",
-    "year": 2017,
-    "categories": [
-      "Action",
-      "Drama",
-      "History",
-      "War"
-    ],
-    "imdbId": "tt5969696",
-    "imdbRating": 7.2,
-    "runtime": 132,
-    "language": "English",
-    "youtubeId": "GmA2YIWRF0M",
-    "summary": "During the Japanese colonial era, roughly 400 Korean people, who were forced onto Battleship Island (\"Hashima Island\") to mine for coal, attempt to a dramatic escape.",
-    "smallThumbnail": "http://i3.ytimg.com/vi/GmA2YIWRF0M/hqdefault.jpg",
-    "bigThumbnail": "http://i3.ytimg.com/vi/GmA2YIWRF0M/maxresdefault.jpg"
   },
   {
     "title": "The Death of Stalin",

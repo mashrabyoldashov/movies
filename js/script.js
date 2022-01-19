@@ -4,10 +4,9 @@ let elResult = document.querySelector('.movies__result');
 let elList = document.querySelector('.movies__list');
 let elSelect = document.querySelector('.form-select');
 let elFormControl = document.querySelector('.form');
+let newButton = document.querySelector('.btn-outline-info');
 
 elResult.textContent = movies.length
-
-
 
 const generateCategories = function(movies){
   let uniqueMovies = [] 
@@ -54,7 +53,7 @@ const generateMovies = function(moviesArray, element){
     newDesc.setAttribute('class', 'card-text calendar text-light')
     newDesc2.setAttribute('class', 'card-text star text-light')
     newButton.setAttribute('class', 'btn btn-outline-primary')
-    newButton.setAttribute('href', 'btn btn-outline-primary')
+    newButton.setAttribute('href', '#')
     newButton2.setAttribute('class', 'btn btn-outline-info')
     newButton3.setAttribute('class', 'btn btn-outline-success')
 
@@ -76,9 +75,16 @@ const generateMovies = function(moviesArray, element){
     newDiv.appendChild(newButton);
     newDiv.appendChild(newButton2);
     newDiv.appendChild(newButton3);
+
+    newButton2.addEventListener('click', () =>{
+      movies.filter(movie =>{
+        
+      })
+    })
   })
 
 }
+
 
 generateMovies(movies, elList);
 generateCategories(movies);
@@ -86,20 +92,16 @@ generateCategories(movies);
 elFormControl.addEventListener('submit', (evt) => {
   evt.preventDefault();
 
-
   elList.innerHTML = null;
 
   let selectValue = elSelect.value;
 
-  let filmsArray = []
-
-  movies.forEach(function(movie) {
-    if(movie.categories.includes(selectValue) || elSelect.value === 'All'){
-      filmsArray.push(movie);
-    }
+  const filteredArray = movies.filter(movie => {
+    return movie.categories.includes(selectValue) || elSelect.value === 'All'
   })
 
-  // elResult.textContent = filmsArray.movie.length
-
-  generateMovies(filmsArray, elList)
+  elResult.textContent = filteredArray.length
+  
+  generateMovies(filteredArray, elList)
 })
+
