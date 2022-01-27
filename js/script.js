@@ -61,15 +61,15 @@ bookmarkList.addEventListener("click", (evt) => {
 
         bookmarkArray.splice(movieRemoveId, 1);
 
-        // bookmarkList.innerHTML = null;
+        bookmarkList.innerHTML = null;
 
         window.localStorage.setItem("bookmarkArray", JSON.stringify(bookmarkArray))
 
-        array(localBookmark, bookmarkList);
+        array(bookmarkArray, bookmarkList);
     }
 });
 
-array(localBookmark, bookmarkList)
+array(bookmarkArray, bookmarkList)
 
 
 elList.addEventListener("click", (evt) => {
