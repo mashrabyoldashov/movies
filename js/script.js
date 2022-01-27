@@ -51,6 +51,8 @@ let array = function(array, node) {
 
 };
 
+array(bookmarkArray, bookmarkList)
+
 bookmarkList.addEventListener("click", (evt) => {
     if (evt.target.matches(".btn-remove")) {
         let idRemoveBtn = evt.target.dataset.bookmarkDelete;
@@ -68,8 +70,6 @@ bookmarkList.addEventListener("click", (evt) => {
         array(bookmarkArray, bookmarkList);
     }
 });
-
-array(bookmarkArray, bookmarkList)
 
 
 elList.addEventListener("click", (evt) => {
@@ -109,7 +109,6 @@ elList.addEventListener("click", (evt) => {
         });
 
         moreInformation()
-
     }
 });
 
@@ -149,7 +148,6 @@ const generateCategories = function(movies) {
     });
 };
 
-// array(localBookmark, bookmarkList)
 
 const generateMovies = function(moviesArray, element) {
     moviesArray.forEach((film) => {
