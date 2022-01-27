@@ -1,86 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./bootstrap/bootstrap.min.css" />
     <link rel="stylesheet" href="./css/main.css" />
     <title>Movies</title>
-  </head>
-  <body class="bg-dark">
+</head>
+
+<body class="bg-dark">
     <div class="container">
 
-      <h1 class="text-center text-light my-5">Movies catalog</h1>
-      <div class="row">
-        <div class="col-5">
-          <form class="form">
-            <div class="mb-3 w-100">
-              <input
-                type="text"
-                class="form-control w-100 bg-dark text-light"
-                id="exampleInputEmail1"
-                aria-describedby="emailHelp"
-                placeholder="Search..."
-              />
+        <h1 class="text-center text-light my-5">Movies catalog</h1>
+        <div class="row">
+            <div class="col-5">
+                <form class="form">
+                    <div class="mb-3 w-100">
+                        <input type="text" class="form-control w-100 bg-dark text-light" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Search..." />
+                    </div>
+                    <div class="mb-3">
+                        <input type="password" class="form-control bg-dark text-light" id="exampleInputPassword1" placeholder="5" />
+                    </div>
+
+                    <select class="form-select bg-dark text-light w-100 mb-3" aria-label="Default select example">
+                        <option selected value="All">All</option>
+                    </select>
+
+                    <select class="form-select bg-dark text-light mb-3" aria-label="Default select example">
+                        <option selected>raiting (high to low)</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                    </select>
+
+                    <button class="btn btn-primary w-100 mb-3">search</button>
+
+                    <h1 class="text-light">Bookmarked movies</h1>
+
+                    <ul class="list-group bookmark-list">
+                    </ul>
+                </form>
             </div>
-            <div class="mb-3">
-              <input
-                type="password"
-                class="form-control bg-dark text-light"
-                id="exampleInputPassword1"
-                placeholder="5"
-              />
+
+            <div class="col-7">
+                <h5 class="text-secondary mb-3">
+                    Search results: <span class="movies__result">0</span>
+                </h5>
+
+                <div class="alert mb-4 bg-dark border border-light text-light" role="alert">
+                    Kinolar Bookmarkda saqlanadi :)
+                </div>
+
+                <ul class="movies__list mt-2 list-unstyled d-flex justify-content-evenly flex-wrap">
+
+                </ul>
+
             </div>
-
-            <select
-              class="form-select bg-dark text-light w-100 mb-3"
-              aria-label="Default select example"
-            >
-              <option selected value="All">All</option>
-            </select>
-
-            <select
-              class="form-select bg-dark text-light mb-3"
-              aria-label="Default select example"
-            >
-              <option selected>raiting (high to low)</option>
-              <option value="1">One</option>
-              <option value="2">Two</option>
-              <option value="3">Three</option>
-            </select>
-
-            <button class="btn btn-primary w-100 mb-3">search</button>
-
-            <h1 class="text-light">Bookmarked movies</h1>
-
-            <ul class="list-group bookmark-list">
-            </ul>
-          </form>
         </div>
 
-        <div class="col-7">
-          <h5 class="text-secondary my-3 pb-4">
-            Search results: <span class="movies__result">0</span>
-          </h5>
 
-          <ul class="movies__list list-unstyled d-flex justify-content-evenly flex-wrap">
+        <div class="hidden more-info-modal">
+            <button class="close-modal">&times;</button>
+            <h1 class="modal-title"></h1>
+            <p class="modal-desc">
 
-          </ul>
-        
-        </div>  
-      </div>
+            </p>
+        </div>
+        <div class="hidden more-info-overlay"></div>
 
-      <div class="modall">
-        <button class="close-modal">&times;</button>
-        <h1 class="modal-title"></h1>
-        <p class="modal-desc">
-        </p>
-      </div>
-      <div class="overlayy"></div>
+        <script src="./bootstrap/bootstrap.bundle.min.js"></script>
+        <script src="./js/movies-new.js"></script>
+        <script src="./js/script.js"></script>
+</body>
 
-    <script src="./bootstrap/bootstrap.bundle.min.js"></script>
-    <script src="./js/movies-new.js"></script>
-    <script src="./js/script.js"></script>
-  </body>
 </html>

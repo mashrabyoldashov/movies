@@ -1,215 +1,243 @@
 "use strict";
-alert("Afsus va nadomat ila shuni malum qilamanki more info buttoni faqat bir marta iwlaydi 😔😔")
-let elResult = document.querySelector('.movies__result');
-let elList = document.querySelector('.movies__list');
-let elSelect = document.querySelector('.form-select');
-let elFormControl = document.querySelector('.form');
-let newButton = document.querySelector('.btn-outline-info');
-let elSearchInput = document.querySelector('.form-control');
+
+let elResult = document.querySelector(".movies__result");
+let elList = document.querySelector(".movies__list");
+let elSelect = document.querySelector(".form-select");
+let elFormControl = document.querySelector(".form");
+let newButton = document.querySelector(".btn-outline-info");
+let elSearchInput = document.querySelector(".form-control");
+let elMoreInfoModal = document.querySelector(".more-info-modal");
+let elMoreInfoOverlay = document.querySelector(".more-info-overlay");
+let elBtnCloseModal = document.querySelector(".close-modal");
+let modalTitle = document.querySelector(".modal-title");
+let modalDesc = document.querySelector(".modal-desc");
 
 elResult.textContent = movies.length;
 
 //BOOKMARK
-let bookmarkList = document.querySelector('.bookmark-list');
-let modal = document.querySelector('.modall');
-let overlay = document.querySelector('.overlayy')
-let closeModal = document.querySelector('.close-modal');
-let modalTitle = document.querySelector('.modal-title');
-let modalDesc = document.querySelector('.modal-desc');
-let bookmarkArray = [];
+let bookmarkList = document.querySelector(".bookmark-list");
+let alert = document.querySelector(".alert");
 
-let array = function(array, node){
-  array.forEach(book => {
-    let newLi = document.createElement('li');
-    let newBokmarkBtn = document.createElement('button');
+const localBookmark = JSON.parse(window.localStorage.getItem("bookmarkArray"));
 
-    newLi.textContent = book.title;
-    newBokmarkBtn.textContent = "Remove";
+let bookmarkArray = localBookmark || [];
 
-    newBokmarkBtn.dataset.bookmarkDelete = book.imdbId;
+let array = function(array, node) {
+    array.forEach((book) => {
+        let newLi = document.createElement("li");
+        let newBokmarkBtn = document.createElement("button");
 
-    newLi.setAttribute('class', 'list-group-item bg-dark text-light border border-light d-flex flex-column');
-    newBokmarkBtn.setAttribute('class', 'btn btn-outline-danger mt-3 w-25 btn-remove');
+        newLi.textContent = book.title;
+        newBokmarkBtn.textContent = "Remove";
 
-    node.appendChild(newLi);
-    newLi.appendChild(newBokmarkBtn);
-  })
-}
+        newBokmarkBtn.dataset.bookmarkDelete = book.imdbId;
 
-bookmarkList.addEventListener('click', (evt) =>{
-  if(evt.target.matches('.btn-remove')){
-    let idRemoveBtn = evt.target.dataset.bookmarkDelete;
+        newLi.setAttribute(
+            "class",
+            "list-group-item bg-dark text-light border border-light d-flex flex-column"
+        );
+        newBokmarkBtn.setAttribute(
+            "class",
+            "btn btn-outline-danger mt-3 w-25 btn-remove"
+        );
 
-    const movieRemoveId = bookmarkArray.findIndex(movie => movie.imdbId === idRemoveBtn)
-    
-    bookmarkArray.splice(movieRemoveId, 1);
-
-    bookmarkList.innerHTML = null;
-
-    array(bookmarkArray, bookmarkList);
-
-    console.log(evt.target.idRemoveBtn);
-  }
-})
-
-
-
-elList.addEventListener('click', (evt)=> {
-
-  if(evt.target.matches(".bookmark-btn")){
-    
-    let idBtn = evt.target.dataset.bookmarkId;
-    
-    const movieId = movies.find(movie => movie.imdbId === idBtn)
-
-    bookmarkList.innerHTML = null;
-
-    bookmarkArray.push(movieId);
-
-    array(bookmarkArray, bookmarkList);
-  } else if(evt.target.matches(".more-info-btn")){
-    let moreInfoBtnId = evt.target.dataset.moreInfoId;
-
-    movies.findIndex(info => {
-    
-      modal.classList.add('modal-info');
-      overlay.classList.add('overlay');
-
-      modalTitle.textContent = info.title;
-      modalDesc.textContent = info.summary;
-      return info.imdbId === moreInfoBtnId;
-    })
-    
-  }
-})
-
-closeModal.addEventListener('click', () => {
-  modal.classList.add('hidden');
-  overlay.classList.add('hidden');
-})
-
-overlay.addEventListener('click', () => {
-  modal.classList.add('hidden');
-  overlay.classList.add('hidden');
-})
-
-
-const generateCategories = function(movies){
-  let uniqueMovies = [];
-  
-  movies.forEach(movie => {
-    movie.categories.forEach(categor => {
-      if(!uniqueMovies.includes(categor)){
-        uniqueMovies.push(categor);
-      }
+        node.appendChild(newLi);
+        newLi.appendChild(newBokmarkBtn);
     });
-  })
+};
+
+array(localBookmark, bookmarkList)
+
+bookmarkList.addEventListener("click", (evt) => {
+    if (evt.target.matches(".btn-remove")) {
+        let idRemoveBtn = evt.target.dataset.bookmarkDelete;
+
+        const movieRemoveId = bookmarkArray.findIndex(
+            (movie) => movie.imdbId === idRemoveBtn
+        );
+
+        bookmarkArray.splice(movieRemoveId, 1);
+
+        bookmarkList.innerHTML = null;
+
+        window.localStorage.setItem("bookmarkArray", JSON.stringify(bookmarkArray))
+
+        array(localBookmark, bookmarkList);
+    }
+});
 
 
-  uniqueMovies.forEach(categor => {
-    let newMoviesOpt = document.createElement("option")
+elList.addEventListener("click", (evt) => {
+    let moreInfoArr = []
 
-    newMoviesOpt.value = categor
-    newMoviesOpt.textContent = categor
+    if (evt.target.matches(".bookmark-btn")) {
+        let idBtn = evt.target.dataset.bookmarkId;
 
-    elSelect.appendChild(newMoviesOpt)
-  })
-}
+        const movieId = movies.find((movie) => movie.imdbId === idBtn);
 
-const generateMovies = function(moviesArray, element){
-  moviesArray.forEach(film =>{
-    //CREATE
-   
-      let newItem = document.createElement('li');
-      let newImg = document.createElement('img');
-      let newDiv = document.createElement('div');
-      let newHeading = document.createElement('h5');
-      let newDesc = document.createElement('p');
-      let newDesc2 = document.createElement('p');
-      let newDivBtn = document.createElement('div');
-      let newButton = document.createElement('a');
-      let newButton2 = document.createElement('button');
-      let newButton3 = document.createElement('button');
+        bookmarkList.innerHTML = null;
 
-      //DATASET ADDING
+        if (!bookmarkArray.includes(movieId)) {
+            alert.textContent = "Kinolar Bookmarkda saqlanmoqda :)";
+            alert.setAttribute("class", "alert mb-4 bg-dark border border-light text-light")
+            bookmarkArray.push(movieId);
+        } else {
+            alert.textContent = "Bu kino bookmarkda saqlangan : (";
+            alert.setAttribute("class", "alert mb-4 bg-dark border border-danger text-danger box-shadov-danger")
+        }
 
-      newButton2.dataset.moreInfoId = film.imdbId;
-      newButton3.dataset.bookmarkId = film.imdbId;
+        window.localStorage.setItem("bookmarkArray", JSON.stringify(bookmarkArray))
 
-      //SET ATTRIBUTE
-      newItem.setAttribute('class', 'card w-25 mb-3')
-      newImg.setAttribute('class', 'card-img-top')
-      newImg.setAttribute('src', film.smallThumbnail)
-      newDiv.setAttribute('class', 'card-body')
-      newHeading.setAttribute('class', 'card-title text-light')
-      newDesc.setAttribute('class', 'card-text calendar text-light')
-      newDesc2.setAttribute('class', 'card-text star text-light')
-      newDivBtn.setAttribute('class', 'd-flex justify-content-between btn-box')
-      newButton.setAttribute('class', 'btn btn-outline-primary')
-      newButton.setAttribute('href', '#')
-      newButton2.setAttribute('class', 'btn btn-outline-info more-info-btn')
-      newButton2.setAttribute('type', 'button')
-      newButton2.setAttribute('data-toggle', 'modal')
-      newButton2.setAttribute('data-target', '#exampleModal')
-      newButton3.setAttribute('class', 'btn btn-outline-success bookmark-btn')
+        array(localBookmark, bookmarkList);
+    } else if (evt.target.matches(".more-info-btn")) {
+        let idMoreInfoBtn = evt.target.dataset.moreInfoId;
 
-      //TEXT CONTENT
-      newHeading.textContent = film.title;
-      newDesc.textContent = film.year;
-      newDesc2.textContent = film.imdbRating;
-      newButton.textContent = "Watch trailer";
-      newButton2.textContent = "More info";
-      newButton3.textContent = "Bookmark";
+        moreInfoArr.push(movies.find(moreIn => moreIn.imdbId === idMoreInfoBtn));
 
-      //APPEND CHILD
-      element.appendChild(newItem);
-      newItem.appendChild(newImg);
-      newItem.appendChild(newDiv);
-      newDiv.appendChild(newHeading);
-      newDiv.appendChild(newDesc);
-      newDiv.appendChild(newDesc2);
-      newDiv.appendChild(newDivBtn);
-      newDivBtn.appendChild(newButton);
-      newDivBtn.appendChild(newButton2);
-      newDivBtn.appendChild(newButton3);
-  })  
- 
-}
+        const moreInformation = moreInfoArr.forEach(movee => {
+            modalTitle.textContent = movee.title
+            modalDesc.textContent = movee.summary
+            elMoreInfoModal.classList.remove("hidden")
+            elMoreInfoOverlay.classList.remove("hidden")
+            elMoreInfoModal.classList.add("modals")
+            elMoreInfoOverlay.classList.add("overlay")
+        });
+
+        moreInformation()
+
+    }
+});
+
+elBtnCloseModal.addEventListener("click", () => {
+    elMoreInfoModal.classList.add("hidden")
+    elMoreInfoOverlay.classList.add("hidden")
+    elMoreInfoModal.classList.remove("modals")
+    elMoreInfoOverlay.classList.remove("overlay")
+})
+
+elMoreInfoOverlay.addEventListener("click", () => {
+    elMoreInfoModal.classList.add("hidden")
+    elMoreInfoOverlay.classList.add("hidden")
+    elMoreInfoModal.classList.remove("modals")
+    elMoreInfoOverlay.classList.remove("overlay")
+})
+
+
+const generateCategories = function(movies) {
+    let uniqueMovies = [];
+
+    movies.forEach((movie) => {
+        movie.categories.forEach((categor) => {
+            if (!uniqueMovies.includes(categor)) {
+                uniqueMovies.push(categor);
+            }
+        });
+    });
+
+    uniqueMovies.forEach((categor) => {
+        let newMoviesOpt = document.createElement("option");
+
+        newMoviesOpt.value = categor;
+        newMoviesOpt.textContent = categor;
+
+        elSelect.appendChild(newMoviesOpt);
+    });
+};
+
+const generateMovies = function(moviesArray, element) {
+    moviesArray.forEach((film) => {
+        //CREATE
+
+        let youTubeId = film.youtubeId;
+        let youTubeLink = "https://www.youtube.com/watch?v=";
+
+        let newItem = document.createElement("li");
+        let newImg = document.createElement("img");
+        let newDiv = document.createElement("div");
+        let newHeading = document.createElement("h5");
+        let newDesc = document.createElement("p");
+        let newDesc2 = document.createElement("p");
+        let newDivBtn = document.createElement("div");
+        let newButton = document.createElement("a");
+        let newButton2 = document.createElement("button");
+        let newButton3 = document.createElement("button");
+
+        //DATASET ADDING
+
+        newButton2.dataset.moreInfoId = film.imdbId;
+        newButton3.dataset.bookmarkId = film.imdbId;
+
+        //SET ATTRIBUTE
+        newItem.setAttribute("class", "card w-25 mb-3");
+        newImg.setAttribute("class", "card-img-top");
+        newImg.setAttribute("src", film.smallThumbnail);
+        newDiv.setAttribute("class", "card-body");
+        newHeading.setAttribute("class", "card-title text-light");
+        newDesc.setAttribute("class", "card-text calendar text-light");
+        newDesc2.setAttribute("class", "card-text star text-light");
+        newDivBtn.setAttribute("class", "d-flex justify-content-between btn-box");
+        newButton.setAttribute("class", "btn btn-outline-primary");
+        newButton.setAttribute("target", "_blank");
+        newButton.setAttribute("href", youTubeLink + youTubeId);
+        newButton2.setAttribute("class", "btn btn-outline-info more-info-btn");
+        newButton3.setAttribute("class", "btn btn-outline-success bookmark-btn");
+
+        //TEXT CONTENT
+        newHeading.textContent = film.title;
+        newDesc.textContent = film.year;
+        newDesc2.textContent = film.imdbRating;
+        newButton.textContent = "Watch trailer";
+        newButton2.textContent = "More info";
+        newButton3.textContent = "Bookmark";
+
+        //APPEND CHILD
+        element.appendChild(newItem);
+        newItem.appendChild(newImg);
+        newItem.appendChild(newDiv);
+        newDiv.appendChild(newHeading);
+        newDiv.appendChild(newDesc);
+        newDiv.appendChild(newDesc2);
+        newDiv.appendChild(newDivBtn);
+        newDivBtn.appendChild(newButton);
+        newDivBtn.appendChild(newButton2);
+        newDivBtn.appendChild(newButton3);
+    });
+};
 
 generateMovies(movies, elList);
 generateCategories(movies);
 
 //SELECTGA QULOQ SOLDIM
 
-elFormControl.addEventListener('submit', (evt) => {
-  evt.preventDefault();
+elFormControl.addEventListener("submit", (evt) => {
+    evt.preventDefault();
 
     elList.innerHTML = null;
 
- 
     //SELECT FILTER
     let selectValue = elSelect.value;
-    const filteredArray = movies.filter(movie => movie.categories.includes(selectValue) || elSelect.value === 'All')
-    
-    elResult.textContent = filteredArray.length
-   
+    const filteredArray = movies.filter(
+        (movie) =>
+        movie.categories.includes(selectValue) || elSelect.value === "All"
+    );
+
+    elResult.textContent = filteredArray.length;
+
     elList.innerHTML = null;
     generateMovies(filteredArray, elList);
-  
-})
+});
 
 //INPUTGA QULOQ SOLDIM
 
-elSearchInput.addEventListener('change', (evt)=>{
+elSearchInput.addEventListener("change", (evt) => {
+    evt.preventDefault();
 
-  evt.preventDefault();
+    let inputValue = elSearchInput.value;
+    const searchFilter = movies.filter((search) => search.title == inputValue);
 
-  let inputValue = elSearchInput.value;
-  const searchFilter = movies.filter(search => search.title == inputValue);
+    elResult.textContent = searchFilter.length;
 
-  elResult.textContent = searchFilter.length;
-  
-  elList.innerHTML = null;
+    elList.innerHTML = null;
 
-  generateMovies(searchFilter, elList);
-})
+    generateMovies(searchFilter, elList);
+});
