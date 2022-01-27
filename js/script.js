@@ -22,7 +22,10 @@ const localBookmark = JSON.parse(window.localStorage.getItem("bookmarkArray"));
 
 let bookmarkArray = localBookmark || [];
 
+
+
 let array = function(array, node) {
+
     array.forEach((book) => {
         let newLi = document.createElement("li");
         let newBokmarkBtn = document.createElement("button");
@@ -43,10 +46,13 @@ let array = function(array, node) {
 
         node.appendChild(newLi);
         newLi.appendChild(newBokmarkBtn);
+
     });
+
 };
 
 array(localBookmark, bookmarkList)
+
 
 bookmarkList.addEventListener("click", (evt) => {
     if (evt.target.matches(".btn-remove")) {
@@ -143,6 +149,8 @@ const generateCategories = function(movies) {
         elSelect.appendChild(newMoviesOpt);
     });
 };
+
+array(localBookmark, bookmarkList)
 
 const generateMovies = function(moviesArray, element) {
     moviesArray.forEach((film) => {
