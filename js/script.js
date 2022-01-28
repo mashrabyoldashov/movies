@@ -8,6 +8,8 @@ let newButton = document.querySelector(".btn-outline-info");
 let elSearchInput = document.querySelector(".form-control");
 let elMoreInfoModal = document.querySelector(".more-info-modal");
 let elMoreInfoOverlay = document.querySelector(".more-info-overlay");
+let elWatchTrelerModal = document.querySelector(".modals");
+let elWatchTrelerOverlay = document.querySelector(".overlay");
 let elBtnCloseModal = document.querySelector(".close-modal");
 let modalTitle = document.querySelector(".modal-title");
 let modalDesc = document.querySelector(".modal-desc");
@@ -73,7 +75,8 @@ bookmarkList.addEventListener("click", (evt) => {
 
 
 elList.addEventListener("click", (evt) => {
-    let moreInfoArr = []
+    let moreInfoArr = [];
+    let watchArr = [];
 
     if (evt.target.matches(".bookmark-btn")) {
         let idBtn = evt.target.dataset.bookmarkId;
@@ -109,7 +112,38 @@ elList.addEventListener("click", (evt) => {
         });
 
         moreInformation()
+    } else if (evt.target.matches(".btn-watch")) {
+        let watch = evt.target.dataset.watchId;
+
+        elWatchTrelerModal.classList.add("modals");
+        elWatchTrelerOverlay.classList.add("overlay");
+        elWatchTrelerModal.classList.remove("hidden");
+        elWatchTrelerOverlay.classList.remove("hidden");
+
+        elWatchTrelerModal.innerHTML = null;
+
+        watchArr.push(movies.find(modal => modal.imdbId === watch))
+
     }
+
+    const render = function(arr2, element2) {
+        arr2.forEach(filmm => {
+            let youtube = filmm.youtubeId;
+            let link = "https://www.youtube.com/embed/"
+
+            let newIframe = document.createElement("iframe");
+
+            newIframe.setAttribute("src", `${link}${youtube}`)
+            newIframe.setAttribute("class", "w-100")
+            newIframe.setAttribute("height", "500")
+
+            element2.appendChild(newIframe)
+        })
+
+    }
+
+    render(watchArr, elWatchTrelerModal)
+
 });
 
 elBtnCloseModal.addEventListener("click", () => {
@@ -124,6 +158,14 @@ elMoreInfoOverlay.addEventListener("click", () => {
     elMoreInfoOverlay.classList.add("hidden")
     elMoreInfoModal.classList.remove("modals")
     elMoreInfoOverlay.classList.remove("overlay")
+})
+
+
+elWatchTrelerOverlay.addEventListener("click", () => {
+    elWatchTrelerModal.classList.remove("modals");
+    elWatchTrelerOverlay.classList.remove("overlay");
+    elWatchTrelerModal.classList.add("hidden");
+    elWatchTrelerOverlay.classList.add("hidden");
 })
 
 
@@ -153,9 +195,6 @@ const generateMovies = function(moviesArray, element) {
     moviesArray.forEach((film) => {
         //CREATE
 
-        let youTubeId = film.youtubeId;
-        let youTubeLink = "https://www.youtube.com/watch?v=";
-
         let newItem = document.createElement("li");
         let newImg = document.createElement("img");
         let newDiv = document.createElement("div");
@@ -163,12 +202,12 @@ const generateMovies = function(moviesArray, element) {
         let newDesc = document.createElement("p");
         let newDesc2 = document.createElement("p");
         let newDivBtn = document.createElement("div");
-        let newButton = document.createElement("a");
+        let newButton = document.createElement("button");
         let newButton2 = document.createElement("button");
         let newButton3 = document.createElement("button");
 
         //DATASET ADDING
-
+        newButton.dataset.watchId = film.imdbId;
         newButton2.dataset.moreInfoId = film.imdbId;
         newButton3.dataset.bookmarkId = film.imdbId;
 
@@ -181,9 +220,8 @@ const generateMovies = function(moviesArray, element) {
         newDesc.setAttribute("class", "card-text calendar text-light");
         newDesc2.setAttribute("class", "card-text star text-light");
         newDivBtn.setAttribute("class", "d-flex justify-content-between btn-box");
-        newButton.setAttribute("class", "btn btn-outline-primary");
+        newButton.setAttribute("class", "btn btn-outline-primary btn-watch");
         newButton.setAttribute("target", "_blank");
-        newButton.setAttribute("href", youTubeLink + youTubeId);
         newButton2.setAttribute("class", "btn btn-outline-info more-info-btn");
         newButton3.setAttribute("class", "btn btn-outline-success bookmark-btn");
 
