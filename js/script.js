@@ -96,7 +96,8 @@ elList.addEventListener("click", (evt) => {
 
         window.localStorage.setItem("bookmarkArray", JSON.stringify(bookmarkArray))
 
-        array(localBookmark, bookmarkList);
+        array(bookmarkArray, bookmarkList);
+
     } else if (evt.target.matches(".more-info-btn")) {
         let idMoreInfoBtn = evt.target.dataset.moreInfoId;
 
