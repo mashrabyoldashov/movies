@@ -1,30 +1,36 @@
 "use strict";
-
+//HTML ELEMENTLARNI CHAQIRIB OLDIM
+//UMUMIY
 let elResult = document.querySelector(".movies__result");
 let elList = document.querySelector(".movies__list");
 let elSelect = document.querySelector(".form-select");
 let elFormControl = document.querySelector(".form");
-let newButton = document.querySelector(".btn-outline-info");
 let elSearchInput = document.querySelector(".form-control");
+//MORE INFO BUTTONI UCHUN ELEMENTLAR
+let newButton = document.querySelector(".btn-outline-info");
 let elMoreInfoModal = document.querySelector(".more-info-modal");
 let elMoreInfoOverlay = document.querySelector(".more-info-overlay");
+let modalTitle = document.querySelector(".modal-title");
+let modalDesc = document.querySelector(".modal-desc");
+//WATCH TRELER UCHUN ELEMENTLAR
 let elWatchTrelerModal = document.querySelector(".modals");
 let elWatchTrelerOverlay = document.querySelector(".overlay");
 let elBtnCloseModal = document.querySelector(".close-modal");
-let modalTitle = document.querySelector(".modal-title");
-let modalDesc = document.querySelector(".modal-desc");
 
+let elButton = document.querySelector(".btn-primary")
+let elSelect2 = document.querySelector(".select-high-low");
+//KINOLARNI HAJMI 
 elResult.textContent = movies.length;
 
-//BOOKMARK
+// elResult.textContent = Date();
+
+//BOOKMARK BUTTONI UCHUN ELEMENTLAR
 let bookmarkList = document.querySelector(".bookmark-list");
 let alert = document.querySelector(".alert");
 
 const localBookmark = JSON.parse(window.localStorage.getItem("bookmarkArray"));
 
 let bookmarkArray = localBookmark || [];
-
-
 
 let array = function(array, node) {
 
@@ -39,7 +45,7 @@ let array = function(array, node) {
 
         newLi.setAttribute(
             "class",
-            "list-group-item bg-dark text-light border border-light d-flex flex-column"
+            "list-group-item bg-light d-flex flex-column"
         );
         newBokmarkBtn.setAttribute(
             "class",
@@ -87,7 +93,7 @@ elList.addEventListener("click", (evt) => {
 
         if (!bookmarkArray.includes(movieId)) {
             alert.textContent = "Kinolar Bookmarkda saqlanmoqda :)";
-            alert.setAttribute("class", "alert mb-4 bg-dark border border-light text-light")
+            alert.setAttribute("class", "mb-4")
             bookmarkArray.push(movieId);
         } else {
             alert.textContent = "Bu kino bookmarkda saqlangan : (";
@@ -213,13 +219,13 @@ const generateMovies = function(moviesArray, element) {
         newButton3.dataset.bookmarkId = film.imdbId;
 
         //SET ATTRIBUTE
-        newItem.setAttribute("class", "card w-25 mb-3");
+        newItem.setAttribute("class", "card w-25 bg-light mb-3");
         newImg.setAttribute("class", "card-img-top");
         newImg.setAttribute("src", film.smallThumbnail);
         newDiv.setAttribute("class", "card-body");
-        newHeading.setAttribute("class", "card-title text-light");
-        newDesc.setAttribute("class", "card-text calendar text-light");
-        newDesc2.setAttribute("class", "card-text star text-light");
+        newHeading.setAttribute("class", "card-title");
+        newDesc.setAttribute("class", "card-text calendar");
+        newDesc2.setAttribute("class", "card-text star");
         newDivBtn.setAttribute("class", "d-flex justify-content-between btn-box");
         newButton.setAttribute("class", "btn btn-outline-primary btn-watch");
         newButton.setAttribute("target", "_blank");
@@ -247,6 +253,38 @@ const generateMovies = function(moviesArray, element) {
         newDivBtn.appendChild(newButton3);
     });
 };
+
+elButton.addEventListener("click", () => {
+    let selectValue = elSelect2.value;
+
+    if (selectValue === "high-low") {
+        // reting = []
+
+        // reting.push(movies)
+
+        elList.innerHTML = null
+
+        generateMovies(movies, elList);
+    } else if (selectValue === "high") {
+        let reting = []
+
+        reting.push(movies.sort((a, b) => b.imdbRating - a.imdbRating))
+
+        elList.innerHTML = null
+
+        generateMovies(reting, elList)
+
+
+    } else if (selectValue === "low") {
+        let reting = []
+
+        reting.push(movies.sort((a, b) => a.imdbRating - b.imdbRating))
+
+        elList.innerHTML = null
+
+        generateMovies(reting, elList)
+    }
+})
 
 generateMovies(movies, elList);
 generateCategories(movies);
