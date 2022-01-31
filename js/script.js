@@ -26,7 +26,6 @@ elResult.textContent = movies.length;
 
 //BOOKMARK BUTTONI UCHUN ELEMENTLAR
 let bookmarkList = document.querySelector(".bookmark-list");
-let alert = document.querySelector(".alert");
 
 const localBookmark = JSON.parse(window.localStorage.getItem("bookmarkArray"));
 
@@ -65,6 +64,12 @@ bookmarkList.addEventListener("click", (evt) => {
     if (evt.target.matches(".btn-remove")) {
         let idRemoveBtn = evt.target.dataset.bookmarkDelete;
 
+        console.log(evt.target);
+
+        if (idRemoveBtn = evt.target.dataset.bookmarkId) {
+
+        }
+        console.log(evt.target.dataset.bookmarkId)
         const movieRemoveId = bookmarkArray.findIndex(
             (movie) => movie.imdbId === idRemoveBtn
         );
@@ -87,17 +92,19 @@ elList.addEventListener("click", (evt) => {
     if (evt.target.matches(".bookmark-btn")) {
         let idBtn = evt.target.dataset.bookmarkId;
 
+        evt.target.style.backgroundColor = "#198754"
+        evt.target.style.color = "white"
+
+        evt.target.disabled = true;
+
         const movieId = movies.find((movie) => movie.imdbId === idBtn);
 
         bookmarkList.innerHTML = null;
 
         if (!bookmarkArray.includes(movieId)) {
-            alert.textContent = "Kinolar Bookmarkda saqlanmoqda :)";
-            alert.setAttribute("class", "mb-4")
             bookmarkArray.push(movieId);
         } else {
-            alert.textContent = "Bu kino bookmarkda saqlangan : (";
-            alert.setAttribute("class", "alert mb-4 bg-dark border border-danger text-danger box-shadov-danger")
+            alert("Bu kino bookmarkda saqlangan :)");
         }
 
         window.localStorage.setItem("bookmarkArray", JSON.stringify(bookmarkArray))
@@ -183,6 +190,7 @@ const generateCategories = function(movies) {
         movie.categories.forEach((categor) => {
             if (!uniqueMovies.includes(categor)) {
                 uniqueMovies.push(categor);
+                window.localStorage.setItem("uniqueMovies", JSON.stringify(uniqueMovies))
             }
         });
     });
@@ -228,7 +236,6 @@ const generateMovies = function(moviesArray, element) {
         newDesc2.setAttribute("class", "card-text star");
         newDivBtn.setAttribute("class", "d-flex justify-content-between btn-box");
         newButton.setAttribute("class", "btn btn-outline-primary btn-watch");
-        newButton.setAttribute("target", "_blank");
         newButton2.setAttribute("class", "btn btn-outline-info more-info-btn");
         newButton3.setAttribute("class", "btn btn-outline-success bookmark-btn");
 
@@ -257,15 +264,7 @@ const generateMovies = function(moviesArray, element) {
 elButton.addEventListener("click", () => {
     let selectValue = elSelect2.value;
 
-    if (selectValue === "high-low") {
-        // reting = []
-
-        // reting.push(movies)
-
-        elList.innerHTML = null
-
-        generateMovies(movies, elList);
-    } else if (selectValue === "high") {
+    if (selectValue === "high") {
         let reting = []
 
         reting.push(movies.sort((a, b) => b.imdbRating - a.imdbRating))
@@ -273,7 +272,6 @@ elButton.addEventListener("click", () => {
         elList.innerHTML = null
 
         generateMovies(reting, elList)
-
 
     } else if (selectValue === "low") {
         let reting = []
@@ -283,6 +281,11 @@ elButton.addEventListener("click", () => {
         elList.innerHTML = null
 
         generateMovies(reting, elList)
+    } else if (selectValue === "high-low") {
+
+        elList.innerHTML = null;
+
+        generateMovies(reting, elList);
     }
 })
 
@@ -311,15 +314,15 @@ elFormControl.addEventListener("submit", (evt) => {
 
 //INPUTGA QULOQ SOLDIM
 
-elSearchInput.addEventListener("change", (evt) => {
-    evt.preventDefault();
+// elSearchInput.addEventListener("change", (evt) => {
+//     evt.preventDefault();
 
-    let inputValue = elSearchInput.value;
-    const searchFilter = movies.filter((search) => search.title == inputValue);
+//     let inputValue = elSearchInput.value;
+//     const searchFilter = movies.filter((search) => search.title == inputValue);
 
-    elResult.textContent = searchFilter.length;
+//     elResult.textContent = searchFilter.length;
 
-    elList.innerHTML = null;
+//     elList.innerHTML = null;
 
-    generateMovies(searchFilter, elList);
-});
+//     generateMovies(searchFilter, elList);
+// });
