@@ -22,10 +22,20 @@ let elSelect2 = document.querySelector(".select-high-low");
 //KINOLARNI HAJMI 
 elResult.textContent = movies.length;
 
-// elResult.textContent = Date();
-
 //BOOKMARK BUTTONI UCHUN ELEMENTLAR
+let bookmarkModal = document.querySelector(".list-modal");
 let bookmarkList = document.querySelector(".bookmark-list");
+let saveBtnBookmark = document.querySelector(".save-btn");
+let closeBookmark = document.querySelector(".bi-x-lg")
+
+saveBtnBookmark.addEventListener("click", () => {
+    bookmarkModal.style.display = "block";
+    bookmarkModal.style.position = "fixed";
+})
+
+closeBookmark.addEventListener("click", () => {
+    bookmarkModal.style.display = "none";
+})
 
 const localBookmark = JSON.parse(window.localStorage.getItem("bookmarkArray"));
 
@@ -34,21 +44,21 @@ let bookmarkArray = localBookmark || [];
 let array = function(array, node) {
 
     array.forEach((book) => {
+
         let newLi = document.createElement("li");
         let newBokmarkBtn = document.createElement("button");
 
         newLi.textContent = book.title;
-        newBokmarkBtn.textContent = "Remove";
 
         newBokmarkBtn.dataset.bookmarkDelete = book.imdbId;
 
         newLi.setAttribute(
             "class",
-            "list-group-item bg-light d-flex flex-column"
+            "list-group-item fs-3 w-25 mx-auto bg-light d-flex align-items-center justify-content-between"
         );
         newBokmarkBtn.setAttribute(
             "class",
-            "btn btn-outline-danger mt-3 w-25 btn-remove"
+            "btn btn-outline-danger btn-remove bi bi-trash"
         );
 
         node.appendChild(newLi);
@@ -62,14 +72,9 @@ array(bookmarkArray, bookmarkList)
 
 bookmarkList.addEventListener("click", (evt) => {
     if (evt.target.matches(".btn-remove")) {
+
         let idRemoveBtn = evt.target.dataset.bookmarkDelete;
 
-        console.log(evt.target);
-
-        if (idRemoveBtn = evt.target.dataset.bookmarkId) {
-
-        }
-        console.log(evt.target.dataset.bookmarkId)
         const movieRemoveId = bookmarkArray.findIndex(
             (movie) => movie.imdbId === idRemoveBtn
         );
@@ -81,6 +86,7 @@ bookmarkList.addEventListener("click", (evt) => {
         window.localStorage.setItem("bookmarkArray", JSON.stringify(bookmarkArray))
 
         array(bookmarkArray, bookmarkList);
+
     }
 });
 
@@ -92,19 +98,20 @@ elList.addEventListener("click", (evt) => {
     if (evt.target.matches(".bookmark-btn")) {
         let idBtn = evt.target.dataset.bookmarkId;
 
-        evt.target.style.backgroundColor = "#198754"
-        evt.target.style.color = "white"
-
-        evt.target.disabled = true;
-
         const movieId = movies.find((movie) => movie.imdbId === idBtn);
 
         bookmarkList.innerHTML = null;
 
         if (!bookmarkArray.includes(movieId)) {
+
+            evt.target.style.opacity = "0.3"
+
             bookmarkArray.push(movieId);
         } else {
-            alert("Bu kino bookmarkda saqlangan :)");
+
+            evt.target.style.opacity = "1"
+
+            bookmarkArray.splice(movieId, 1);
         }
 
         window.localStorage.setItem("bookmarkArray", JSON.stringify(bookmarkArray))
@@ -125,7 +132,8 @@ elList.addEventListener("click", (evt) => {
             elMoreInfoOverlay.classList.add("overlay")
         });
 
-        moreInformation()
+        moreInformation();
+
     } else if (evt.target.matches(".btn-watch")) {
         let watch = evt.target.dataset.watchId;
 
@@ -234,18 +242,18 @@ const generateMovies = function(moviesArray, element) {
         newHeading.setAttribute("class", "card-title");
         newDesc.setAttribute("class", "card-text calendar");
         newDesc2.setAttribute("class", "card-text star");
-        newDivBtn.setAttribute("class", "d-flex justify-content-between btn-box");
-        newButton.setAttribute("class", "btn btn-outline-primary btn-watch");
-        newButton2.setAttribute("class", "btn btn-outline-info more-info-btn");
-        newButton3.setAttribute("class", "btn btn-outline-success bookmark-btn");
+        newDivBtn.setAttribute("class", "d-flex justify-content-evenly mb-auto");
+        newButton.setAttribute("class", "btn btn-outline-primary btn-watch bi bi-tv d-flex align-items-center  flex-column-reverse");
+        newButton2.setAttribute("class", "btn btn-outline-info more-info-btn bi bi-info-circle d-flex align-items-center  flex-column-reverse");
+        newButton3.setAttribute("class", "btn btn-outline-success bookmark-btn bi bi-download d-flex align-items-center  flex-column-reverse");
 
         //TEXT CONTENT
         newHeading.textContent = film.title;
         newDesc.textContent = film.year;
         newDesc2.textContent = film.imdbRating;
-        newButton.textContent = "Watch trailer";
-        newButton2.textContent = "More info";
-        newButton3.textContent = "Bookmark";
+        newButton.textContent = "Watch";
+        newButton2.textContent = "Info";
+        newButton3.textContent = "Save";
 
         //APPEND CHILD
         element.appendChild(newItem);
