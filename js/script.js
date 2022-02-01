@@ -104,14 +104,16 @@ elList.addEventListener("click", (evt) => {
 
         if (!bookmarkArray.includes(movieId)) {
 
-            evt.target.style.opacity = "0.3"
+            evt.target.classList.remove("bi-cloud-download")
+            evt.target.classList.add("bi-cloud-download-fill")
 
             bookmarkArray.push(movieId);
         } else {
 
-            evt.target.style.opacity = "1"
-
             bookmarkArray.splice(movieId, 1);
+
+            evt.target.classList.add("bi-cloud-download")
+            evt.target.classList.remove("bi-cloud-download-fill")
         }
 
         window.localStorage.setItem("bookmarkArray", JSON.stringify(bookmarkArray))
@@ -245,7 +247,7 @@ const generateMovies = function(moviesArray, element) {
         newDivBtn.setAttribute("class", "d-flex justify-content-evenly mb-auto");
         newButton.setAttribute("class", "btn btn-outline-primary btn-watch bi bi-tv d-flex align-items-center  flex-column-reverse");
         newButton2.setAttribute("class", "btn btn-outline-info more-info-btn bi bi-info-circle d-flex align-items-center  flex-column-reverse");
-        newButton3.setAttribute("class", "btn btn-outline-success bookmark-btn bi bi-download d-flex align-items-center  flex-column-reverse");
+        newButton3.setAttribute("class", "btn btn-outline-success bookmark-btn bi bi-cloud-download d-flex align-items-center  flex-column-reverse");
 
         //TEXT CONTENT
         newHeading.textContent = film.title;
